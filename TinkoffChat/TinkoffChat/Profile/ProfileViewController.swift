@@ -51,6 +51,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         self.logButtonFrame(button: self.editProfileButton, function: #function)
     }
     
+    @IBAction func close() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func profileButtonTouch(sender : UIButton) {
         print("Выбери изображение профиля")
         let alertController = UIAlertController(title: "Выбрать изображение профиля", message: nil, preferredStyle: .actionSheet)
