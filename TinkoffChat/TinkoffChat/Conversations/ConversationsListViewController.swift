@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ConversationsListViewController: UIViewController, UITableViewDataSource {
+class ConversationsListViewController: BaseViewController, UITableViewDataSource, ThemesViewControllerDelegate {
     
     @IBOutlet weak var tableView : UITableView!
     
@@ -38,6 +38,38 @@ class ConversationsListViewController: UIViewController, UITableViewDataSource {
     
     @IBAction func showProfileScreen() {
         self.present(self.profileViewController!, animated: true, completion: nil)
+    }
+    
+    @IBAction func showThemesViewController() {
+        let themesViewController = ThemesViewController.init(nibName: "ThemesViewController", bundle: nil)
+        themesViewController.delegate = self
+        themesViewController.model = Themes()
+        let navigationThemesViewController = UINavigationController(rootViewController: themesViewController)
+        self.present(navigationThemesViewController, animated: true, completion: nil)
+    }
+    
+    @objc func cancelBarButtonItemTapped(sender : UIBarButtonItem!)
+    {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    /// MARK implementation ThemesViewControllerDelegate
+    func themesViewController(_ controller: ThemesViewController!, didSelectTheme selectedTheme: UIColor!) {
+        self.logThemeChanging(selectedTheme: selectedTheme)
+        self.saveAndApplySelectedColor(selectedColor: selectedTheme)
+    }
+    
+    func logThemeChanging(selectedTheme: UIColor) {
+        print("Был выбран новый цвет = \(selectedTheme)")
+    }
+    
+    func saveAndApplySelectedColor(selectedColor : UIColor) {
+        UserDefaults.standard.setColor(color: selectedColor, forKey: "selectedColor")
+        self.view.backgroundColor = selectedColor
+        let inverseColor = selectedColor.isLight() ? UIColor.black : UIColor.white
+        UINavigationBar.appearance().barTintColor = selectedColor
+        UINavigationBar.appearance().tintColor = inverseColor
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: inverseColor]
     }
     
     /// MARK implementation UITableViewDataSource

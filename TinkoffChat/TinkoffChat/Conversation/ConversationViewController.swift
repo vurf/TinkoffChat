@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ConversationViewController: UIViewController, UITableViewDataSource {
+class ConversationViewController: BaseViewController, UITableViewDataSource {
     
     @IBOutlet weak var tableView : UITableView!
     
@@ -26,6 +26,7 @@ class ConversationViewController: UIViewController, UITableViewDataSource {
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 66

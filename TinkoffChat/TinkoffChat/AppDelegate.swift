@@ -20,6 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         self.log(previous: notRunningState, current: inactiveState, function: #function)
+        let selectedColor = UserDefaults.standard.colorForKey(key: "selectedColor")!
+        let inverseColor = selectedColor.isLight() ? UIColor.black : UIColor.white
+        UINavigationBar.appearance().barTintColor = selectedColor
+        UINavigationBar.appearance().tintColor = inverseColor
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: inverseColor]
         return true
     }
 

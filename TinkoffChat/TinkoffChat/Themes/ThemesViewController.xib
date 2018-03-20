@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ThemesViewController">
+            <connections>
+                <outlet property="view" destination="vQa-Ua-efk" id="xVK-Qm-kGv"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="vQa-Ua-efk">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yEo-10-fcQ">
+                    <rect key="frame" x="87" y="313.5" width="200" height="40"/>
+                    <color key="backgroundColor" red="1" green="0.84753417310000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="tKQ-QG-loi"/>
+                        <constraint firstAttribute="height" constant="40" id="vEY-kK-EEL"/>
+                    </constraints>
+                    <state key="normal" title="Set Dark Theme"/>
+                    <connections>
+                        <action selector="selectTheme:" destination="-1" eventType="touchUpInside" id="EcC-h5-Dem"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9Z-yY-wGW">
+                    <rect key="frame" x="87" y="373.5" width="200" height="40"/>
+                    <color key="backgroundColor" red="1" green="0.84753417310000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="5c4-ky-xPP"/>
+                        <constraint firstAttribute="height" constant="40" id="jiY-iJ-Zbx"/>
+                    </constraints>
+                    <state key="normal" title="Set Shampagne Theme"/>
+                    <connections>
+                        <action selector="selectTheme:" destination="-1" eventType="touchUpInside" id="Jrf-KM-UK3"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJa-ci-hwb">
+                    <rect key="frame" x="87" y="253.5" width="200" height="40"/>
+                    <color key="backgroundColor" red="1" green="0.84753417310000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="3Ms-jL-gEJ"/>
+                        <constraint firstAttribute="height" constant="40" id="Xe7-rY-V0h"/>
+                    </constraints>
+                    <state key="normal" title="Set Light Theme"/>
+                    <connections>
+                        <action selector="selectTheme:" destination="-1" eventType="touchUpInside" id="i05-Vp-Iqp"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="VJa-ci-hwb" firstAttribute="centerX" secondItem="vQa-Ua-efk" secondAttribute="centerX" id="16B-dC-ENX"/>
+                <constraint firstItem="yEo-10-fcQ" firstAttribute="centerY" secondItem="vQa-Ua-efk" secondAttribute="centerY" id="Am3-4Z-pED"/>
+                <constraint firstItem="yEo-10-fcQ" firstAttribute="centerX" secondItem="vQa-Ua-efk" secondAttribute="centerX" id="UNM-13-b0H"/>
+                <constraint firstItem="yEo-10-fcQ" firstAttribute="top" secondItem="VJa-ci-hwb" secondAttribute="bottom" constant="20" id="gqx-l2-qiR"/>
+                <constraint firstItem="J9Z-yY-wGW" firstAttribute="top" secondItem="yEo-10-fcQ" secondAttribute="bottom" constant="20" id="nJ1-lu-YWV"/>
+                <constraint firstItem="J9Z-yY-wGW" firstAttribute="centerX" secondItem="vQa-Ua-efk" secondAttribute="centerX" id="w1q-7H-1MF"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ymI-zi-Z4v"/>
+            <point key="canvasLocation" x="55" y="-45"/>
+        </view>
+    </objects>
+</document>
