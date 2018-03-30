@@ -8,7 +8,11 @@
 
 @import UIKit;
 
-@interface Themes : NSObject
+@interface Themes : NSObject {
+    UIColor *_theme1;
+    UIColor *_theme2;
+    UIColor *_theme3;
+}
 
 @property (nonatomic, retain) UIColor *theme1;
 

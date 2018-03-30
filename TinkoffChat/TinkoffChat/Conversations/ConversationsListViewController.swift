@@ -13,7 +13,6 @@ class ConversationsListViewController: BaseViewController, UITableViewDataSource
     
     @IBOutlet weak var tableView : UITableView!
     
-    private var profileViewController : UIViewController?
     private var conversationsTemp: [[ConversationData]] = [[ConversationData]]()
     
     var conversations: [[ConversationData]] {
@@ -33,11 +32,12 @@ class ConversationsListViewController: BaseViewController, UITableViewDataSource
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 60
         self.tableView.tableFooterView = UIView()
-        self.profileViewController = UIStoryboard(name: "ProfileScreen", bundle: nil).instantiateInitialViewController()!
     }
     
     @IBAction func showProfileScreen() {
-        self.present(self.profileViewController!, animated: true, completion: nil)
+        let profileViewController = ProfileViewController.init(nibName: "ProfileViewController", bundle: nil)
+        let navigationProfileViewController = UINavigationController(rootViewController: profileViewController)
+        self.present(navigationProfileViewController, animated: true, completion: nil)
     }
     
     @IBAction func showThemesViewController() {
@@ -64,12 +64,17 @@ class ConversationsListViewController: BaseViewController, UITableViewDataSource
     }
     
     func saveAndApplySelectedColor(selectedColor : UIColor) {
-        UserDefaults.standard.setColor(color: selectedColor, forKey: "selectedColor")
-        self.view.backgroundColor = selectedColor
-        let inverseColor = selectedColor.isLight() ? UIColor.black : UIColor.white
-        UINavigationBar.appearance().barTintColor = selectedColor
-        UINavigationBar.appearance().tintColor = inverseColor
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: inverseColor]
+        let globalQueue = DispatchQueue.global(qos: .utility)
+        globalQueue.async {
+            UserDefaults.standard.setColor(color: selectedColor, forKey: "selectedColor")
+            DispatchQueue.main.async {
+                self.view.backgroundColor = selectedColor
+                let inverseColor = selectedColor.isLight() ? UIColor.black : UIColor.white
+                UINavigationBar.appearance().barTintColor = selectedColor
+                UINavigationBar.appearance().tintColor = inverseColor
+                UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: inverseColor]
+            }
+        }
     }
     
     /// MARK implementation UITableViewDataSource

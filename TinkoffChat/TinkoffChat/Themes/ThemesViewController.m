@@ -12,6 +12,28 @@
 
 @implementation ThemesViewController
 
+- (id<ThemesViewControllerDelegate>) delegate {
+    return _delegate;
+}
+
+- (void) setDelegate:(id<ThemesViewControllerDelegate>)delegate {
+    if (_delegate != delegate) {
+        [delegate retain];
+        [_delegate release];
+        _delegate = delegate;
+    }
+}
+
+- (Themes *) model {
+    return _model;
+}
+
+- (void) setModel:(Themes *)model {
+    [model retain];
+    [_model release];
+    _model = model;
+}
+
 - (void) viewDidLoad {
     [super viewDidLoad];
     self.title = @"Themes";
@@ -25,6 +47,7 @@
     
     UIBarButtonItem *cancelBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelAction)];
     [self.navigationItem setLeftBarButtonItem:cancelBarButtonItem animated:YES];
+    [cancelBarButtonItem autorelease];
 }
 
 - (void) cancelAction {
@@ -63,8 +86,8 @@
 
 - (void) dealloc {
     printf("ThemesViewController destroyed");
-    [[self model] release];
-    [[self delegate] release];
+    [_model release]; _model = nil;
+    [_delegate release]; _delegate = nil;
     [super dealloc];
 }
                                             

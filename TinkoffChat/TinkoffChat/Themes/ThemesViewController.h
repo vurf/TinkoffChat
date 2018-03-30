@@ -10,7 +10,10 @@
 @class Themes;
 @protocol ThemesViewControllerDelegate;
 
-@interface ThemesViewController : UIViewController
+@interface ThemesViewController : UIViewController {
+    id<ThemesViewControllerDelegate> _delegate;
+    Themes *_model;
+}
 
 @property (nonatomic, retain) id<ThemesViewControllerDelegate> delegate;
 
