@@ -31,6 +31,13 @@
 		B36FC57E20542C5C00F2F948 /* ConversationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36FC57D20542C5C00F2F948 /* ConversationData.swift */; };
 		B37C5570206B6F6C00834574 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B37C556F206B6F6C00834574 /* ProfileViewController.xib */; };
 		B39B2773205FBAFA00E7C09F /* Themes.m in Sources */ = {isa = PBXBuildFile; fileRef = B39B2772205FBAFA00E7C09F /* Themes.m */; };
+		B3BBBB862073D793005B5E69 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BBBB852073D793005B5E69 /* MultipeerConnectivity.framework */; };
+		B3BBBB892073D7C1005B5E69 /* Communicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBBB882073D7C1005B5E69 /* Communicator.swift */; };
+		B3BBBB8B2073D8A1005B5E69 /* CommunicatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBBB8A2073D8A1005B5E69 /* CommunicatorDelegate.swift */; };
+		B3BBBB8D2073D9C8005B5E69 /* MultipeerCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBBB8C2073D9C8005B5E69 /* MultipeerCommunicator.swift */; };
+		B3BBBB8F2073DA43005B5E69 /* CommunicationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBBB8E2073DA43005B5E69 /* CommunicationManager.swift */; };
+		B3E42670207605610065A697 /* ConversationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E4266F207605610065A697 /* ConversationDelegate.swift */; };
+		B3E4267220761F450065A697 /* ConversationsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E4267120761F450065A697 /* ConversationsDelegate.swift */; };
 		B3EF745F205F94DB00118BF9 /* ThemesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EF745E205F94DB00118BF9 /* ThemesViewController.m */; };
 		B3EF7465205FA8AA00118BF9 /* ThemesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3EF7464205FA8AA00118BF9 /* ThemesViewController.xib */; };
 		B3F31C2220616F5500B397F2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F31C2120616F5500B397F2 /* BaseViewController.swift */; };
@@ -86,6 +93,13 @@
 		B36FC57D20542C5C00F2F948 /* ConversationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationData.swift; sourceTree = "<group>"; };
 		B37C556F206B6F6C00834574 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		B39B2772205FBAFA00E7C09F /* Themes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Themes.m; sourceTree = "<group>"; };
+		B3BBBB852073D793005B5E69 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
+		B3BBBB882073D7C1005B5E69 /* Communicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Communicator.swift; sourceTree = "<group>"; };
+		B3BBBB8A2073D8A1005B5E69 /* CommunicatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicatorDelegate.swift; sourceTree = "<group>"; };
+		B3BBBB8C2073D9C8005B5E69 /* MultipeerCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerCommunicator.swift; sourceTree = "<group>"; };
+		B3BBBB8E2073DA43005B5E69 /* CommunicationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationManager.swift; sourceTree = "<group>"; };
+		B3E4266F207605610065A697 /* ConversationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationDelegate.swift; sourceTree = "<group>"; };
+		B3E4267120761F450065A697 /* ConversationsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsDelegate.swift; sourceTree = "<group>"; };
 		B3EF745D205F94DA00118BF9 /* TinkoffChat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TinkoffChat-Bridging-Header.h"; sourceTree = "<group>"; };
 		B3EF745E205F94DB00118BF9 /* ThemesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThemesViewController.m; sourceTree = "<group>"; };
 		B3EF7460205F958400118BF9 /* ThemesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemesViewController.h; sourceTree = "<group>"; };
@@ -102,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3BBBB862073D793005B5E69 /* MultipeerConnectivity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +144,7 @@
 				9135BD732042BD99004FA990 /* TinkoffChatTests */,
 				9135BD7E2042BD99004FA990 /* TinkoffChatUITests */,
 				9135BD5D2042BD98004FA990 /* Products */,
+				B3BBBB842073D792005B5E69 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -145,6 +161,7 @@
 		9135BD5E2042BD98004FA990 /* TinkoffChat */ = {
 			isa = PBXGroup;
 			children = (
+				B3BBBB872073D79E005B5E69 /* Messenger */,
 				B3EF7463205FA88F00118BF9 /* Themes */,
 				91C5919D205541810068292A /* Conversation */,
 				B36FC5762054212600F2F948 /* Conversations */,
@@ -222,6 +239,27 @@
 				B36FC57D20542C5C00F2F948 /* ConversationData.swift */,
 			);
 			path = Conversations;
+			sourceTree = "<group>";
+		};
+		B3BBBB842073D792005B5E69 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B3BBBB852073D793005B5E69 /* MultipeerConnectivity.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B3BBBB872073D79E005B5E69 /* Messenger */ = {
+			isa = PBXGroup;
+			children = (
+				B3BBBB882073D7C1005B5E69 /* Communicator.swift */,
+				B3BBBB8A2073D8A1005B5E69 /* CommunicatorDelegate.swift */,
+				B3BBBB8C2073D9C8005B5E69 /* MultipeerCommunicator.swift */,
+				B3BBBB8E2073DA43005B5E69 /* CommunicationManager.swift */,
+				B3E4266F207605610065A697 /* ConversationDelegate.swift */,
+				B3E4267120761F450065A697 /* ConversationsDelegate.swift */,
+			);
+			path = Messenger;
 			sourceTree = "<group>";
 		};
 		B3EF7463205FA88F00118BF9 /* Themes */ = {
@@ -310,7 +348,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = TCS;
 				TargetAttributes = {
 					9135BD5B2042BD98004FA990 = {
@@ -385,20 +423,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				B36FC57A2054277700F2F948 /* ConversationsTableViewCell.swift in Sources */,
+				B3BBBB8B2073D8A1005B5E69 /* CommunicatorDelegate.swift in Sources */,
+				B3BBBB8F2073DA43005B5E69 /* CommunicationManager.swift in Sources */,
 				91C5919A204C02FE0068292A /* ProfileViewController.swift in Sources */,
 				91C5919F205541C70068292A /* ConversationViewController.swift in Sources */,
 				B34A4535206BC56100D7A450 /* DataManagerProtocol.swift in Sources */,
 				B36FC5782054214D00F2F948 /* ConversationsListViewController.swift in Sources */,
 				B3F31C2620617D9900B397F2 /* UIColor+Extension.swift in Sources */,
+				B3BBBB8D2073D9C8005B5E69 /* MultipeerCommunicator.swift in Sources */,
 				91C591A12055488C0068292A /* MessageCellConfiguration.swift in Sources */,
 				B339CBCD206AAD4900805B6C /* GCDDataManager.swift in Sources */,
 				B3F31C2220616F5500B397F2 /* BaseViewController.swift in Sources */,
 				B339CBD1206ABB6800805B6C /* User.swift in Sources */,
+				B3E42670207605610065A697 /* ConversationDelegate.swift in Sources */,
 				B34A4533206BB43800D7A450 /* UserManager.swift in Sources */,
 				B39B2773205FBAFA00E7C09F /* Themes.m in Sources */,
 				9135BD622042BD98004FA990 /* ViewController.swift in Sources */,
 				91C5919C204C10080068292A /* UIView+Extension.swift in Sources */,
 				91C591A72055556A0068292A /* MessageData.swift in Sources */,
+				B3E4267220761F450065A697 /* ConversationsDelegate.swift in Sources */,
 				B36FC57C2054295200F2F948 /* ConversationCellConfiguration.swift in Sources */,
 				91C591A3205549B20068292A /* MessageTableViewCell.swift in Sources */,
 				B339CBCF206AAD5F00805B6C /* OperationDataManager.swift in Sources */,
@@ -406,6 +449,7 @@
 				9135BD602042BD98004FA990 /* AppDelegate.swift in Sources */,
 				B3EF745F205F94DB00118BF9 /* ThemesViewController.m in Sources */,
 				B3F31C2420616FE600B397F2 /* UserDefaults+Extension.swift in Sources */,
+				B3BBBB892073D7C1005B5E69 /* Communicator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +518,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -481,6 +526,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -531,6 +577,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -538,6 +585,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -573,6 +621,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TinkoffChat/Info.plist;
@@ -593,6 +642,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TinkoffChat/Info.plist;
