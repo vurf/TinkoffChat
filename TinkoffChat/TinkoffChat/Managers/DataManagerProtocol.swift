@@ -11,8 +11,8 @@ import Foundation
 protocol DataManagerProtocol {
     
     // Сохранить пользователя
-    func saveUser(user : User, completionClosure: @escaping (_ withError : Bool) -> ())
+    func saveUser(user : ProfileUser, completionClosure: @escaping (_ withError : Bool) -> ())
     
     // Загрузить пользователя
-    func loadUser(completionClosure: @escaping (_ user : User?) -> ())
+    func loadUser(completionClosure: @escaping (_ user : ProfileUser?) -> ())
 }

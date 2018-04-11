@@ -12,7 +12,7 @@ class OperationDataManager : DataManagerProtocol {
     
     let userManager : UserManager = UserManager()
     
-    func saveUser(user: User, completionClosure: @escaping (Bool) -> ()) {
+    func saveUser(user: ProfileUser, completionClosure: @escaping (Bool) -> ()) {
         let operationQueue = OperationQueue()
         let saveOperation = SaveUserOperation(userManager: self.userManager, user: user)
         saveOperation.completionBlock = {
@@ -24,7 +24,7 @@ class OperationDataManager : DataManagerProtocol {
         operationQueue.addOperation(saveOperation)
     }
     
-    func loadUser(completionClosure: @escaping (User?) -> ()) {
+    func loadUser(completionClosure: @escaping (ProfileUser?) -> ()) {
         let operationQueue = OperationQueue()
         let loadOperation = LoadUserOperation(userManager: self.userManager)
         loadOperation.completionBlock = {
@@ -40,11 +40,11 @@ class OperationDataManager : DataManagerProtocol {
 class SaveUserOperation : Operation {
     
     private let userManager : UserManager
-    private let user : User
+    private let user : ProfileUser
     
     var hasError : Bool = false
     
-    init(userManager : UserManager, user : User) {
+    init(userManager : UserManager, user : ProfileUser) {
         self.userManager = userManager
         self.user = user
         super.init()
@@ -60,7 +60,7 @@ class LoadUserOperation : Operation {
     
     private let userManager : UserManager
     
-    var user : User?
+    var user : ProfileUser?
     
     init(userManager : UserManager) {
         self.userManager = userManager

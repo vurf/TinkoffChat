@@ -22,14 +22,18 @@
 		91C591A72055556A0068292A /* MessageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C591A62055556A0068292A /* MessageData.swift */; };
 		B339CBCD206AAD4900805B6C /* GCDDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B339CBCC206AAD4900805B6C /* GCDDataManager.swift */; };
 		B339CBCF206AAD5F00805B6C /* OperationDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B339CBCE206AAD5F00805B6C /* OperationDataManager.swift */; };
-		B339CBD1206ABB6800805B6C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B339CBD0206ABB6800805B6C /* User.swift */; };
+		B33AA149207DDDAB007571E7 /* AppUser+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33AA148207DDDAB007571E7 /* AppUser+Extension.swift */; };
+		B33AA14B207DE2FC007571E7 /* ProfileUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33AA14A207DE2FC007571E7 /* ProfileUser.swift */; };
 		B34A4533206BB43800D7A450 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34A4532206BB43800D7A450 /* UserManager.swift */; };
 		B34A4535206BC56100D7A450 /* DataManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34A4534206BC56100D7A450 /* DataManagerProtocol.swift */; };
+		B35AE5EA207B420E000F5B79 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35AE5E9207B420E000F5B79 /* CoreDataStack.swift */; };
+		B35AE5EC207B4905000F5B79 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35AE5EB207B4905000F5B79 /* StorageManager.swift */; };
 		B36FC5782054214D00F2F948 /* ConversationsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36FC5772054214D00F2F948 /* ConversationsListViewController.swift */; };
 		B36FC57A2054277700F2F948 /* ConversationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36FC5792054277700F2F948 /* ConversationsTableViewCell.swift */; };
 		B36FC57C2054295200F2F948 /* ConversationCellConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36FC57B2054295200F2F948 /* ConversationCellConfiguration.swift */; };
 		B36FC57E20542C5C00F2F948 /* ConversationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36FC57D20542C5C00F2F948 /* ConversationData.swift */; };
 		B37C5570206B6F6C00834574 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B37C556F206B6F6C00834574 /* ProfileViewController.xib */; };
+		B399679B207B612100E87D16 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B3996799207B612100E87D16 /* Model.xcdatamodeld */; };
 		B39B2773205FBAFA00E7C09F /* Themes.m in Sources */ = {isa = PBXBuildFile; fileRef = B39B2772205FBAFA00E7C09F /* Themes.m */; };
 		B3BBBB862073D793005B5E69 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BBBB852073D793005B5E69 /* MultipeerConnectivity.framework */; };
 		B3BBBB892073D7C1005B5E69 /* Communicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBBB882073D7C1005B5E69 /* Communicator.swift */; };
@@ -84,14 +88,18 @@
 		91C591A62055556A0068292A /* MessageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageData.swift; sourceTree = "<group>"; };
 		B339CBCC206AAD4900805B6C /* GCDDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDDataManager.swift; sourceTree = "<group>"; };
 		B339CBCE206AAD5F00805B6C /* OperationDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationDataManager.swift; sourceTree = "<group>"; };
-		B339CBD0206ABB6800805B6C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B33AA148207DDDAB007571E7 /* AppUser+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppUser+Extension.swift"; sourceTree = "<group>"; };
+		B33AA14A207DE2FC007571E7 /* ProfileUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUser.swift; sourceTree = "<group>"; };
 		B34A4532206BB43800D7A450 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		B34A4534206BC56100D7A450 /* DataManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerProtocol.swift; sourceTree = "<group>"; };
+		B35AE5E9207B420E000F5B79 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		B35AE5EB207B4905000F5B79 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		B36FC5772054214D00F2F948 /* ConversationsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsListViewController.swift; sourceTree = "<group>"; };
 		B36FC5792054277700F2F948 /* ConversationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsTableViewCell.swift; sourceTree = "<group>"; };
 		B36FC57B2054295200F2F948 /* ConversationCellConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationCellConfiguration.swift; sourceTree = "<group>"; };
 		B36FC57D20542C5C00F2F948 /* ConversationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationData.swift; sourceTree = "<group>"; };
 		B37C556F206B6F6C00834574 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		B399679A207B612100E87D16 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B39B2772205FBAFA00E7C09F /* Themes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Themes.m; sourceTree = "<group>"; };
 		B3BBBB852073D793005B5E69 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
 		B3BBBB882073D7C1005B5E69 /* Communicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Communicator.swift; sourceTree = "<group>"; };
@@ -176,6 +184,7 @@
 				9135BD682042BD99004FA990 /* LaunchScreen.storyboard */,
 				9135BD6B2042BD99004FA990 /* Info.plist */,
 				B3EF745D205F94DA00118BF9 /* TinkoffChat-Bridging-Header.h */,
+				B3996799207B612100E87D16 /* Model.xcdatamodeld */,
 			);
 			path = TinkoffChat;
 			sourceTree = "<group>";
@@ -203,7 +212,7 @@
 			children = (
 				91C59198204C02FE0068292A /* ProfileViewController.swift */,
 				B37C556F206B6F6C00834574 /* ProfileViewController.xib */,
-				B339CBD0206ABB6800805B6C /* User.swift */,
+				B33AA14A207DE2FC007571E7 /* ProfileUser.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -226,6 +235,8 @@
 				B339CBCE206AAD5F00805B6C /* OperationDataManager.swift */,
 				B34A4532206BB43800D7A450 /* UserManager.swift */,
 				B34A4534206BC56100D7A450 /* DataManagerProtocol.swift */,
+				B35AE5E9207B420E000F5B79 /* CoreDataStack.swift */,
+				B35AE5EB207B4905000F5B79 /* StorageManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -281,6 +292,7 @@
 				91C5919B204C10080068292A /* UIView+Extension.swift */,
 				B3F31C2320616FE600B397F2 /* UserDefaults+Extension.swift */,
 				B3F31C2520617D9900B397F2 /* UIColor+Extension.swift */,
+				B33AA148207DDDAB007571E7 /* AppUser+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -434,7 +446,6 @@
 				91C591A12055488C0068292A /* MessageCellConfiguration.swift in Sources */,
 				B339CBCD206AAD4900805B6C /* GCDDataManager.swift in Sources */,
 				B3F31C2220616F5500B397F2 /* BaseViewController.swift in Sources */,
-				B339CBD1206ABB6800805B6C /* User.swift in Sources */,
 				B3E42670207605610065A697 /* ConversationDelegate.swift in Sources */,
 				B34A4533206BB43800D7A450 /* UserManager.swift in Sources */,
 				B39B2773205FBAFA00E7C09F /* Themes.m in Sources */,
@@ -442,14 +453,19 @@
 				91C5919C204C10080068292A /* UIView+Extension.swift in Sources */,
 				91C591A72055556A0068292A /* MessageData.swift in Sources */,
 				B3E4267220761F450065A697 /* ConversationsDelegate.swift in Sources */,
+				B399679B207B612100E87D16 /* Model.xcdatamodeld in Sources */,
 				B36FC57C2054295200F2F948 /* ConversationCellConfiguration.swift in Sources */,
 				91C591A3205549B20068292A /* MessageTableViewCell.swift in Sources */,
 				B339CBCF206AAD5F00805B6C /* OperationDataManager.swift in Sources */,
 				B36FC57E20542C5C00F2F948 /* ConversationData.swift in Sources */,
 				9135BD602042BD98004FA990 /* AppDelegate.swift in Sources */,
+				B33AA149207DDDAB007571E7 /* AppUser+Extension.swift in Sources */,
 				B3EF745F205F94DB00118BF9 /* ThemesViewController.m in Sources */,
 				B3F31C2420616FE600B397F2 /* UserDefaults+Extension.swift in Sources */,
+				B33AA14B207DE2FC007571E7 /* ProfileUser.swift in Sources */,
+				B35AE5EC207B4905000F5B79 /* StorageManager.swift in Sources */,
 				B3BBBB892073D7C1005B5E69 /* Communicator.swift in Sources */,
+				B35AE5EA207B420E000F5B79 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -758,6 +774,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B3996799207B612100E87D16 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B399679A207B612100E87D16 /* Model.xcdatamodel */,
+			);
+			currentVersion = B399679A207B612100E87D16 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9135BD542042BD98004FA990 /* Project object */;
 }

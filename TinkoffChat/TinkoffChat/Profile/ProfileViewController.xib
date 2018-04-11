@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,6 +14,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="TinkoffChat" customModuleProvider="target">
             <connections>
                 <outlet property="activityIndicator" destination="XA1-3S-uGs" id="5UU-xo-H8O"/>
+                <outlet property="coreDataButton" destination="PRl-sq-WFg" id="h6H-37-oju"/>
                 <outlet property="detailTextView" destination="J8y-7n-bMP" id="bkN-y5-4WE"/>
                 <outlet property="editProfileButton" destination="Viq-Kf-ber" id="LFa-Of-9CO"/>
                 <outlet property="gcdButton" destination="LAt-qu-Igu" id="AR9-80-zc3"/>
@@ -86,7 +87,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="84x-gt-s72">
-                                            <rect key="frame" x="16" y="8" width="163.5" height="45"/>
+                                            <rect key="frame" x="16" y="8" width="103.5" height="45"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="45" id="fx9-jy-vtk"/>
                                             </constraints>
@@ -97,29 +98,41 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LAt-qu-Igu">
-                                            <rect key="frame" x="195.5" y="8" width="163.5" height="45"/>
+                                            <rect key="frame" x="135.5" y="8" width="104" height="45"/>
                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <state key="normal" title="GCD"/>
                                             <connections>
                                                 <action selector="saveButtonTouch:" destination="-1" eventType="touchUpInside" id="V4C-Pc-5HZ"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PRl-sq-WFg">
+                                            <rect key="frame" x="255.5" y="8" width="103.5" height="45"/>
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal" title="CoreData"/>
+                                            <connections>
+                                                <action selector="saveButtonTouch:" destination="-1" eventType="touchUpInside" id="4Aw-Ec-75z"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
+                                        <constraint firstItem="PRl-sq-WFg" firstAttribute="leading" secondItem="LAt-qu-Igu" secondAttribute="trailing" constant="16" id="3vX-9x-tjS"/>
                                         <constraint firstItem="LAt-qu-Igu" firstAttribute="height" secondItem="84x-gt-s72" secondAttribute="height" id="6Bb-wO-rm7"/>
                                         <constraint firstAttribute="bottom" secondItem="LAt-qu-Igu" secondAttribute="bottom" constant="8" id="CNx-Gs-E1x"/>
                                         <constraint firstItem="Viq-Kf-ber" firstAttribute="leading" secondItem="xIc-r6-wJg" secondAttribute="leading" constant="16" id="D7p-4L-bX1"/>
-                                        <constraint firstAttribute="trailing" secondItem="LAt-qu-Igu" secondAttribute="trailing" constant="16" id="Dkm-R7-xEw"/>
+                                        <constraint firstItem="PRl-sq-WFg" firstAttribute="width" secondItem="84x-gt-s72" secondAttribute="width" id="F1A-ZE-ULx"/>
                                         <constraint firstAttribute="bottom" secondItem="Viq-Kf-ber" secondAttribute="bottom" constant="8" id="FDW-Xm-b9E"/>
                                         <constraint firstAttribute="bottom" secondItem="84x-gt-s72" secondAttribute="bottom" constant="8" id="ULN-pP-GV8"/>
                                         <constraint firstAttribute="trailing" secondItem="Viq-Kf-ber" secondAttribute="trailing" constant="16" id="WZH-vL-Lzk"/>
                                         <constraint firstItem="84x-gt-s72" firstAttribute="top" secondItem="xIc-r6-wJg" secondAttribute="top" constant="8" id="XJy-bW-uG8"/>
+                                        <constraint firstAttribute="bottom" secondItem="PRl-sq-WFg" secondAttribute="bottom" constant="8" id="dww-0A-sqJ"/>
                                         <constraint firstItem="84x-gt-s72" firstAttribute="leading" secondItem="xIc-r6-wJg" secondAttribute="leading" constant="16" id="exZ-Ud-Tc7"/>
+                                        <constraint firstAttribute="trailing" secondItem="PRl-sq-WFg" secondAttribute="trailing" constant="16" id="hWQ-sl-HGk"/>
                                         <constraint firstItem="Viq-Kf-ber" firstAttribute="top" secondItem="xIc-r6-wJg" secondAttribute="top" constant="8" id="jHq-0i-Gk7"/>
                                         <constraint firstItem="84x-gt-s72" firstAttribute="width" secondItem="LAt-qu-Igu" secondAttribute="width" id="mFL-PD-AcS"/>
                                         <constraint firstItem="LAt-qu-Igu" firstAttribute="leading" secondItem="84x-gt-s72" secondAttribute="trailing" constant="16" id="mcn-YK-yZm"/>
                                         <constraint firstItem="LAt-qu-Igu" firstAttribute="top" secondItem="xIc-r6-wJg" secondAttribute="top" constant="8" id="osG-xj-XbV"/>
+                                        <constraint firstItem="PRl-sq-WFg" firstAttribute="top" secondItem="xIc-r6-wJg" secondAttribute="top" constant="8" id="s0h-75-wdF"/>
                                     </constraints>
                                 </view>
                                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="XA1-3S-uGs">

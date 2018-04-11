@@ -1,14 +1,14 @@
 //
-//  User.swift
+//  ProfileUser.swift
 //  TinkoffChat
 //
-//  Created by Илья Варфоломеев on 3/27/18.
+//  Created by Илья Варфоломеев on 4/11/18.
 //  Copyright © 2018 TCS. All rights reserved.
 //
 
 import Foundation
 
-class User {
+class ProfileUser {
     
     var username : String?
     var description : String?

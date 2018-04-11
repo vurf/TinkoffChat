@@ -12,7 +12,7 @@ class GCDDataManager : DataManagerProtocol {
     
     let userManager : UserManager = UserManager()
     
-    func saveUser(user : User, completionClosure: @escaping (_ withError : Bool) -> ()) {
+    func saveUser(user : ProfileUser, completionClosure: @escaping (_ withError : Bool) -> ()) {
         let globalQueue = DispatchQueue.global(qos: .utility)
         globalQueue.async {
             let hasError = self.userManager.save(user: user)
@@ -22,7 +22,7 @@ class GCDDataManager : DataManagerProtocol {
         }
     }
     
-    func loadUser(completionClosure: @escaping (_ user : User?) -> ()) {
+    func loadUser(completionClosure: @escaping (_ user : ProfileUser?) -> ()) {
         let globalQueue = DispatchQueue.global(qos: .utility)
         globalQueue.async {
             let loadedUser = self.userManager.get()

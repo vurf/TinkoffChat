@@ -20,9 +20,10 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var operationButton: UIButton!
     @IBOutlet weak var gcdButton: UIButton!
     @IBOutlet weak var activityIndicator : UIActivityIndicatorView!
+    @IBOutlet weak var coreDataButton: UIButton!
     
     let imagePickerController : UIImagePickerController = UIImagePickerController()
-    var dataManager : DataManagerProtocol? = OperationDataManager()
+    var dataManager : DataManagerProtocol? = StorageManager()
     
     var editingMode : Bool = false {
         didSet {
@@ -30,7 +31,7 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
         }
     }
     
-    private var user : User?
+    private var user : ProfileUser?
     private var repeatSaveBlock : (() -> Void)?
     
     private var profileWasEdited : Bool {
@@ -69,6 +70,7 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
         self.editProfileButton.applyButtonStyle()
         self.operationButton.applyButtonStyle()
         self.gcdButton.applyButtonStyle()
+        self.coreDataButton.applyButtonStyle()
         
         // установил scaleAspectFill, тк считаю что фотография может быть слишком узкая или слишком широкая, поэтому эффект закругленных углов должен быть даже в таких случаях
         self.profileImageView.contentMode = .scaleAspectFill
@@ -77,7 +79,7 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
         
         self.detailTextView.text = "Нет данных"
         self.detailTextView.textColor = UIColor.lightGray
-        self.user = User(username: self.usernameField.text, description: self.detailTextView.text, avatar: self.profileImageView.image)
+        self.user = ProfileUser(username: self.usernameField.text, description: self.detailTextView.text, avatar: self.profileImageView.image)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -146,8 +148,10 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
             
             if sender.tag == 0 {
                 self.dataManager = OperationDataManager()
-            } else {
+            } else if sender.tag == 1 {
                 self.dataManager = GCDDataManager()
+            } else {
+                self.dataManager = StorageManager()
             }
             
             self.dataManager?.saveUser(user: self.user!, completionClosure: { (withError : Bool) in
@@ -266,11 +270,13 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
         self.detailTextView.isEditable = isEditing
         self.operationButton.isHidden = !isEditing
         self.gcdButton.isHidden = !isEditing
+        self.coreDataButton.isHidden = !isEditing
     }
     
     private func setEnabledButton(isEnabled : Bool) {
         self.operationButton.isEnabled = isEnabled
         self.gcdButton.isEnabled = isEnabled
+        self.coreDataButton.isEnabled = isEnabled
     }
     
     private func presentSuccessAlertController() {

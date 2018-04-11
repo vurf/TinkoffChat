@@ -16,7 +16,7 @@ class UserManager {
     
     // Сохранение пользователя
     // если есть ошибка вернет true
-    func save(user : User) -> Bool {
+    func save(user : ProfileUser) -> Bool {
         do {
             let filePath = self.getDocumentsDirectory()
             
@@ -40,9 +40,9 @@ class UserManager {
     }
     
     // Получение загруженного пользователя
-    func get() -> User? {
+    func get() -> ProfileUser? {
         do {
-            let user : User = User()
+            let user : ProfileUser = ProfileUser()
             let filePath = getDocumentsDirectory()
             
             user.username = try String(contentsOf: filePath.appendingPathComponent(self.usernameFilename))
