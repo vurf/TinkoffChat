@@ -8,14 +8,19 @@
 
 import Foundation
 
+protocol StorageManagerProtocol: class {
+    func recieveMessage(text: String, fromUser: String,toUser:String)
+    func didFoundUser(userID:String,userName:String?)
+    func didLostUser(userID:String)
+}
+
 class CommunicationManager : NSObject, CommuncatorDelegate {
     
-    var multipeerCommunicator : MultipeerCommunicator
-    weak var conversationDelegate : ConversationDelegate?
-    weak var conversationsDelegate : ConversationsDelegate?
+    let multipeerCommunicator : MultipeerCommunicator = MultipeerCommunicator()
+    var storage : StorageManagerProtocol
     
-    override init() {
-        self.multipeerCommunicator = MultipeerCommunicator()
+    init(storage : StorageManagerProtocol) {
+        self.storage = storage
         super.init()
         self.multipeerCommunicator.delegate = self
         self.multipeerCommunicator.start()
@@ -26,29 +31,27 @@ class CommunicationManager : NSObject, CommuncatorDelegate {
     }
     
     func didFoundUser(userID: String, userName: String?) {
-        self.conversationDelegate?.didFoundUser(userID: userID, userName: userName)
-        self.conversationsDelegate?.didFoundUser(userID: userID, userName: userName)
+        self.storage.didFoundUser(userID: userID, userName: userName)
     }
     
     func didLostUser(userID: String) {
-        self.conversationDelegate?.didLostUser(userID: userID)
-        self.conversationsDelegate?.didLostUser(userID: userID)
+        self.storage.didLostUser(userID: userID)
     }
     
     func failedToStartBrowsingForUsers(error: Error) {
-        self.conversationsDelegate?.failedToStartBrowsingForUsers(error: error)
+        // Ignore
     }
     
     func failedToStartAdvertising(error: Error) {
-        self.conversationsDelegate?.failedToStartAdvertising(error: error)
+        // Ignore
     }
     
     func didReceiveMessage(text: String, fromUser: String, toUser: String) {
-        self.conversationDelegate?.didReceiveMessage(text: text, fromUser: fromUser, toUser: toUser)
-        self.conversationsDelegate?.didReceiveMessage(text: text, fromUser: fromUser, toUser: toUser)
+        self.storage.recieveMessage(text: text, fromUser: fromUser, toUser: toUser)
     }
     
-    func didSendMessage(text: String, toUser: String) {
-        self.conversationsDelegate?.didSendMessage(text: text, toUser: toUser)
+    func didSendMessage(text: String, toUser: String, completion: ((Bool, Error?) -> ())?) {
+        self.storage.recieveMessage(text: text, fromUser: MultipeerCommunicator.myDisplayName, toUser: toUser)
+        self.multipeerCommunicator.sendMessage(string: text, to: toUser, completionHandler: completion)
     }
 }

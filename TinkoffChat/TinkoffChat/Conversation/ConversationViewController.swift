@@ -8,23 +8,35 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class ConversationViewController: BaseViewController {
     
     @IBOutlet weak var tableView : UITableView!
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var sendButton : UIButton!
+    @IBOutlet weak var bottomConstraint : NSLayoutConstraint!
     
     var communicationManager : CommunicationManager?
-    var currentUserID : String?
-    private var personalMessages : [MessageData]?
+    var fetchedResultsController : NSFetchedResultsController<Message>?
+    var conversationProvider : ConversationDataProvider?
+    var conversationId : String?
+    var userId : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.communicationManager?.conversationDelegate = self
         self.tableView.dataSource = self
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 66
+        self.tableView.keyboardDismissMode = .onDrag
+        self.conversationProvider = ConversationDataProvider(tableView: self.tableView, conversationId: self.conversationId!)
+        self.fetchedResultsController = self.conversationProvider?.fetchedResultsController
+        
+        do {
+            try self.fetchedResultsController?.performFetch()
+        } catch {
+            print("Error fetching: \(error)")
+        }
     }
     
     @IBAction func sendTouch(_ sender: UIButton) {
@@ -32,13 +44,9 @@ class ConversationViewController: BaseViewController {
             return
         }
         
-        self.communicationManager?.multipeerCommunicator.sendMessage(string: messageText, to: self.currentUserID!, completionHandler: { (success, error) in
+        self.communicationManager?.didSendMessage(text: messageText, toUser: self.userId!, completion: { (success, error) in
             if success {
-                let message = MessageData(text: messageText, isIncoming: false)
-                self.appendMessage(messageData: message)
-               
                 DispatchQueue.main.async {
-                    self.tableView.reloadData()
                     self.messageTextField.text = ""
                 }                
             }
@@ -47,61 +55,63 @@ class ConversationViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.personalMessages = ConversationsListViewController.messages[self.currentUserID!]
+        self.tableView.frame.origin = CGPoint(x: (self.navigationController?.navigationBar.frame.size.height)!, y: 0)
+        self.tableView.transform = CGAffineTransform.identity.rotated(by: CGFloat.pi)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if let personalMessagesUnwrapped = self.personalMessages, !personalMessagesUnwrapped.isEmpty {
-            self.tableView.scrollToRow(at: IndexPath(item: personalMessagesUnwrapped.count - 1, section: 0), at: .bottom, animated: true)
-        }
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        ConversationsListViewController.messages[self.currentUserID!] = self.personalMessages
-    }
-    
-    func appendMessage(messageData : MessageData) {
-        if self.personalMessages == nil {
-            self.personalMessages = [messageData]
-        } else {
-            self.personalMessages?.append(messageData)
-        }
-    }
-    
-}
-
-extension ConversationViewController : ConversationDelegate {
-    
-    func didFoundUser(userID: String, userName: String?) {
-        self.sendButton.isEnabled = userID == self.currentUserID
-    }
-    
-    func didLostUser(userID: String) {
-        self.sendButton.isEnabled = !(userID == self.currentUserID)
-    }
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
-    func didReceiveMessage(text: String, fromUser: String, toUser: String) {
-        let message = MessageData(text: text, isIncoming: true)
-        self.appendMessage(messageData: message)
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
+        let convers = Conversation.findConversation(with: conversationId!, in: CoreDataStack.instance.saveContext)
+        convers?.lastMessage?.isUnread = false
+        CoreDataStack.instance.performSave(context: CoreDataStack.instance.saveContext, completionHandler: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            self.bottomConstraint.constant = -keyboardSize.height;
+            UIView.animate(withDuration: 0.3) {
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        self.bottomConstraint.constant = 0;
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
         }
     }
     
 }
 
-// MARK: Data Source
+// MARK: - Data Source
 extension ConversationViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.personalMessages?.count ?? 0
+        
+        if let rowsCount = self.fetchedResultsController?.sections?[section].numberOfObjects {
+            return rowsCount
+        }
+        
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var dequeuedCell : MessageTableViewCell
-        let message = self.personalMessages![indexPath.row]
+        
+        guard let message = self.fetchedResultsController?.object(at: indexPath) else {
+            return UITableViewCell(frame: CGRect.zero)
+        }
+        
         if message.isIncoming {
             dequeuedCell = tableView.dequeueReusableCell(withIdentifier: MessageTableViewCell.incomingIdenfitifier, for: indexPath) as! MessageTableViewCell
         } else {

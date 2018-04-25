@@ -18,7 +18,7 @@ class MessageTableViewCell: UITableViewCell {
     @IBOutlet weak var bubbleImageView : UIImageView!
     @IBOutlet weak var messageLabel : UILabel!
     
-    var configuration : MessageCellConfiguration?
+    var configuration : Message?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -27,9 +27,10 @@ class MessageTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.bubbleView.applyCornerRadius(radius: 14)
+        self.transform = CGAffineTransform.identity.rotated(by: CGFloat.pi)
     }
     
-    func setConfiguration(configuration: MessageCellConfiguration) {
+    func setConfiguration(configuration: Message) {
         self.configuration = configuration
         self.messageLabel.text = configuration.text
         if configuration.isIncoming {

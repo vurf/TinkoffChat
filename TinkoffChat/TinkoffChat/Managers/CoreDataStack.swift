@@ -11,6 +11,7 @@ import CoreData
 
 class CoreDataStack {
     
+    static let instance : CoreDataStack = CoreDataStack()
     let dataModelName = "Model"
     let dataModelExtension = "momd"
     

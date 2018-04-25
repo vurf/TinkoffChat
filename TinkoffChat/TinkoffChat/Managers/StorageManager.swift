@@ -7,17 +7,16 @@
 //
 
 import Foundation
+import CoreData
 
-class StorageManager : DataManagerProtocol {
+class StorageManager : DataManagerProtocol  {
     
-    var coreDataStack : CoreDataStack = CoreDataStack()
-        
     func saveUser(user: ProfileUser, completionClosure: @escaping (Bool) -> ()) {
-        let context = self.coreDataStack.saveContext
+        let context = CoreDataStack.instance.saveContext
         if let appUser = AppUser.findOrInsertAppUser(in: context) {
             
             if user.usernameWasEdited {
-                appUser.username = user.username
+                appUser.name = user.username
             }
             
             if user.descriptionWasEdited {
@@ -28,7 +27,7 @@ class StorageManager : DataManagerProtocol {
                 appUser.avatar = user.avatar
             }
             
-            self.coreDataStack.performSave(context: context) {
+            CoreDataStack.instance.performSave(context: context) {
                 DispatchQueue.main.async {
                     completionClosure(false)
                 }
@@ -37,12 +36,12 @@ class StorageManager : DataManagerProtocol {
     }
     
     func loadUser(completionClosure: @escaping (ProfileUser?) -> ()) {
-        let context = self.coreDataStack.saveContext
+        let context = CoreDataStack.instance.saveContext
         if let appUser = AppUser.findOrInsertAppUser(in: context) {
-            if appUser.username == nil && appUser.details == nil && appUser.avatar == nil {
+            if appUser.name == nil && appUser.details == nil && appUser.avatar == nil {
                 completionClosure(nil)
             } else {
-                let profileUser = ProfileUser(username: appUser.username, description: appUser.details, avatar: appUser.avatar as? UIImage)
+                let profileUser = ProfileUser(username: appUser.name, description: appUser.details, avatar: appUser.avatar as? UIImage)
                 
                 DispatchQueue.main.async {
                     completionClosure(profileUser)
@@ -50,5 +49,42 @@ class StorageManager : DataManagerProtocol {
             }
         }
     }
+}
+
+// MARK: - StorageProtocol
+extension StorageManager : StorageManagerProtocol {
     
+    func recieveMessage(text: String, fromUser: String, toUser: String) {
+        let context = CoreDataStack.instance.saveContext
+        let message = Message.insertMessage(messageText: text, recieverId: toUser, senderId: fromUser, in: context)
+        message?.isUnread = true
+        message?.isIncoming = toUser == MultipeerCommunicator.myDisplayName
+        let conversation = Conversation.findOrInsertConversation(with: Message.generateConversationId(id1: fromUser, id2: toUser), in: context)
+        conversation?.lastMessage = message
+        CoreDataStack.instance.performSave(context: context, completionHandler: nil)
+    }
+    
+    func didFoundUser(userID: String, userName: String?) {
+        let currentUserName = MultipeerCommunicator.myDisplayName
+        let context = CoreDataStack.instance.saveContext
+        let user = User.findOrInsertUser(with: userID, in: context)
+        user?.name = userName
+        user?.isOnline = true
+        let conversation = Conversation.findOrInsertConversation(with: Message.generateConversationId(id1: userID, id2: currentUserName), in: context)
+        let me = User.findOrInsertUser(with: currentUserName, in: context)
+        conversation?.addToUsers(user!)
+        conversation?.addToUsers(me!)
+        conversation?.isOnline = true
+        CoreDataStack.instance.performSave(context: context, completionHandler: nil)
+    }
+    
+    func didLostUser(userID: String) {
+        let currentUserName = MultipeerCommunicator.myDisplayName
+        let context = CoreDataStack.instance.saveContext
+        let user = User.findOrInsertUser(with: userID, in: context)
+        user?.isOnline = false
+        let conversation = Conversation.findOrInsertConversation(with: Message.generateConversationId(id1: userID, id2: currentUserName), in: context)
+        conversation?.isOnline = false
+        CoreDataStack.instance.performSave(context: context, completionHandler: nil)
+    }
 }

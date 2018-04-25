@@ -17,7 +17,9 @@ class ConversationsTableViewCell: UITableViewCell, ConversationCellConfiguration
     @IBOutlet weak var messageLabel : UILabel!
     @IBOutlet weak var timeLabel : UILabel!
     
-    var configuration : ConversationCellConfiguration?
+    var configuration : Conversation?
+    var conversationId : String?
+    var userId : String?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -27,13 +29,22 @@ class ConversationsTableViewCell: UITableViewCell, ConversationCellConfiguration
         super.awakeFromNib()
     }
     
-    func setConfiguration(configuration : ConversationCellConfiguration) {
+    func setConfiguration(configuration : Conversation) {
         self.configuration = configuration
-        self.name = configuration.name
-        self.message = configuration.message
-        self.date = configuration.date
-        self.online = configuration.online
-        self.hasUnreadedMessages = configuration.hasUnreadedMessages
+        let users = configuration.users?.allObjects as! [User]
+        if users.first?.userId == MultipeerCommunicator.myDisplayName {
+            self.name =  users.last?.name
+            self.userId = users.last?.userId
+        } else {
+            self.name =  users.first?.name
+            self.userId = users.first?.userId
+        }
+        
+        self.message = configuration.lastMessage?.text
+        self.date = configuration.lastMessage?.date
+        self.online = configuration.isOnline
+        self.hasUnreadedMessages = configuration.lastMessage?.isUnread ?? false
+        self.conversationId = configuration.conversationId
     }
     
     var name : String? {

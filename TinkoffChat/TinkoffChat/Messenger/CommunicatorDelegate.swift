@@ -23,5 +23,5 @@ protocol CommuncatorDelegate : class {
     // Messages
     func didReceiveMessage(text : String, fromUser : String, toUser : String)
     
-    func didSendMessage(text : String, toUser : String)
+    func didSendMessage(text : String, toUser : String, completion: ((Bool, Error?) -> ())?)
 }

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
+class ProfileViewController: BaseViewController, UINavigationControllerDelegate {
     
     @IBOutlet weak var profileImageView : UIImageView!
     @IBOutlet weak var profileButton : UIButton!
@@ -109,27 +109,6 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
         }
     }
     
-    func textViewDidChange(_ textView: UITextView) {
-        if let detailText = textView.text {
-            self.user!.descriptionWasEdited = detailText != self.user!.description ?? ""
-            self.setEnabledButton(isEnabled: self.profileWasEdited)
-        }
-    }
-    
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == UIColor.lightGray {
-            textView.text = nil
-            textView.textColor = UIColor.black
-        }
-    }
-    
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
-            textView.text = "Нет данных"
-            textView.textColor = UIColor.lightGray
-        }
-    }
-    
     @IBAction func editProfile(sender : UIButton) {
         self.editingMode = true
         self.setEnabledButton(isEnabled: false)
@@ -197,30 +176,6 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
         self.scrollView.contentInset = UIEdgeInsets.zero
     }
     
-    // MARK implementation UIImagePickerControllerDelegate
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            self.profileImageView.image = image
-            
-            if let previousImage = self.user!.avatar {
-                let newImage = UIImagePNGRepresentation(image)!
-                let oldImage = UIImagePNGRepresentation(previousImage)!
-                self.user!.avatarWasEdited = !newImage.elementsEqual(oldImage)
-            } else {
-                self.user!.avatarWasEdited = true
-            }
-            
-            self.setEnabledButton(isEnabled: self.profileWasEdited)
-        } else {
-            print("Не удалось выбрать изображение")
-        }
-        
-        picker.dismiss(animated: true, completion: nil)
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
-    }
     
     private func chooseFromGallery(action : UIAlertAction) {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
@@ -293,5 +248,58 @@ class ProfileViewController: BaseViewController, UIImagePickerControllerDelegate
         })
         
         self.present(alertController, animated: true, completion: nil)
+    }
+}
+
+// MARK: - Image Picker Delegate
+extension ProfileViewController : UIImagePickerControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            self.profileImageView.image = image
+            
+            if let previousImage = self.user!.avatar {
+                let newImage = UIImagePNGRepresentation(image)!
+                let oldImage = UIImagePNGRepresentation(previousImage)!
+                self.user!.avatarWasEdited = !newImage.elementsEqual(oldImage)
+            } else {
+                self.user!.avatarWasEdited = true
+            }
+            
+            self.setEnabledButton(isEnabled: self.profileWasEdited)
+        } else {
+            print("Не удалось выбрать изображение")
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+}
+
+// MARK: - Text View Delegate
+extension ProfileViewController : UITextViewDelegate {
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if let detailText = textView.text {
+            self.user!.descriptionWasEdited = detailText != self.user!.description ?? ""
+            self.setEnabledButton(isEnabled: self.profileWasEdited)
+        }
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Нет данных"
+            textView.textColor = UIColor.lightGray
+        }
     }
 }
