@@ -13,6 +13,7 @@ protocol IServicesAssembly {
     var communicationManager: ICommunicationManager {get}
     var userStorageService: IUserStorageService {get}
     var coreDataService: ICoreDataService {get}
+    var photosService: IPhotosService {get}
 }
 
 class ServicesAssembly: IServicesAssembly {
@@ -30,4 +31,6 @@ class ServicesAssembly: IServicesAssembly {
     lazy var userStorageService: IUserStorageService = UserCoreDataStorage(dataStack: self.coreAssembly.coreDataStack)
     
     lazy var coreDataService: ICoreDataService = CoreDataService(coreData: self.coreAssembly.coreDataStack)
+    
+    lazy var photosService: IPhotosService = PhotosService(requestSender: self.coreAssembly.requestSender)
 }

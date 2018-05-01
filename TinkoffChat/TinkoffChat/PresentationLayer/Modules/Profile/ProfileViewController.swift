@@ -23,7 +23,9 @@ class ProfileViewController: BaseViewController, UINavigationControllerDelegate 
     @IBOutlet weak var coreDataButton: UIButton!
     
     let imagePickerController : UIImagePickerController = UIImagePickerController()
+    
     private var userStorageFacade : IUserStorageFacade
+    private var assembly: IPresentationAssembly
     
     var editingMode : Bool = false {
         didSet {
@@ -40,8 +42,9 @@ class ProfileViewController: BaseViewController, UINavigationControllerDelegate 
         }
     }
     
-    init(userStorageFacade: IUserStorageFacade) {
+    init(userStorageFacade: IUserStorageFacade, assembly: IPresentationAssembly) {
         self.userStorageFacade = userStorageFacade
+        self.assembly = assembly
         super.init(nibName: "ProfileViewController", bundle: nil)
     }
     
@@ -52,8 +55,7 @@ class ProfileViewController: BaseViewController, UINavigationControllerDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Profile"
-        let cancelBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .cancel, target: self, action: #selector(close))
-        self.navigationItem.setLeftBarButton(cancelBarButtonItem, animated: true)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .cancel, target: self, action: #selector(close))
         
         self.detailTextView.delegate = self
         self.imagePickerController.delegate = self
@@ -157,6 +159,7 @@ class ProfileViewController: BaseViewController, UINavigationControllerDelegate 
         let alertController = UIAlertController(title: "Выбрать изображение профиля", message: nil, preferredStyle: .actionSheet)
         alertController.addAction(UIAlertAction(title: "Установить из галлереи", style: .default, handler: self.chooseFromGallery))
         alertController.addAction(UIAlertAction(title: "Сделать фото", style: .default, handler: self.makePhoto))
+        alertController.addAction(UIAlertAction(title: "Загрузить", style: .default, handler: self.loadPhotos))
         alertController.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
         self.present(alertController, animated: true, completion: nil)
     }
@@ -172,33 +175,6 @@ class ProfileViewController: BaseViewController, UINavigationControllerDelegate 
     @objc func keyboardWillHide(notification: NSNotification) {
         self.scrollView.scrollIndicatorInsets = UIEdgeInsets.zero
         self.scrollView.contentInset = UIEdgeInsets.zero
-    }
-    
-    private func chooseFromGallery(action : UIAlertAction) {
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            self.imagePickerController.sourceType = .photoLibrary
-            self.present(imagePickerController, animated: true, completion: nil)
-        } else {
-            print("Нет доступа к галереи")
-        }
-    }
-    
-    private func makePhoto(action : UIAlertAction) {
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            self.imagePickerController.sourceType = .camera
-            self.present(imagePickerController, animated: true, completion: nil)
-        } else {
-            print("Нет доступа к камере")
-        }
-    }
-    
-    private func logButtonFrame(button : UIButton?, function : String) {
-        guard let buttonUnwrapped = button else {
-            print("\n\nКнопка не проинициализирована в \(function)")
-            return
-        }
-        
-        print("\n\nРазмер кнопки = \(buttonUnwrapped.frame) в \(function) ")
     }
     
     private func loadUser() {
@@ -229,6 +205,44 @@ class ProfileViewController: BaseViewController, UINavigationControllerDelegate 
         self.operationButton.isEnabled = isEnabled
         self.gcdButton.isEnabled = isEnabled
         self.coreDataButton.isEnabled = isEnabled
+    }
+    
+    private func logButtonFrame(button : UIButton?, function : String) {
+        guard let buttonUnwrapped = button else {
+            print("\n\nКнопка не проинициализирована в \(function)")
+            return
+        }
+        
+        print("\n\nРазмер кнопки = \(buttonUnwrapped.frame) в \(function) ")
+    }
+}
+
+// MARK: - UIAlerController
+extension ProfileViewController {
+    
+    private func loadPhotos(action : UIAlertAction) {
+        let photosViewController = self.assembly.photosViewController()
+        photosViewController.collectionPickerDelegate = self
+        
+        self.present(UINavigationController(rootViewController: photosViewController), animated: true, completion: nil)
+    }
+    
+    private func chooseFromGallery(action : UIAlertAction) {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            self.imagePickerController.sourceType = .photoLibrary
+            self.present(imagePickerController, animated: true, completion: nil)
+        } else {
+            print("Нет доступа к галереи")
+        }
+    }
+    
+    private func makePhoto(action : UIAlertAction) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            self.imagePickerController.sourceType = .camera
+            self.present(imagePickerController, animated: true, completion: nil)
+        } else {
+            print("Нет доступа к камере")
+        }
     }
     
     private func presentSuccessAlertController() {
@@ -299,4 +313,24 @@ extension ProfileViewController : UITextViewDelegate {
             textView.textColor = UIColor.lightGray
         }
     }
+}
+
+// MARK: - IPhotosViewControllerDelegate
+extension ProfileViewController : IPhotosViewControllerDelegate {
+    
+    func collectionPickerController(_ picker: PhotosViewController, didFinishPickingImage image: UIImage) {
+        
+        self.profileImageView.image = image
+        
+        if let previousImage = self.user!.avatar {
+            let newImage = UIImagePNGRepresentation(image)!
+            let oldImage = UIImagePNGRepresentation(previousImage)!
+            self.user!.avatarWasEdited = !newImage.elementsEqual(oldImage)
+        } else {
+            self.user!.avatarWasEdited = true
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
 }

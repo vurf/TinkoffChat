@@ -52,6 +52,22 @@
 		B3BBBB862073D793005B5E69 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BBBB852073D793005B5E69 /* MultipeerConnectivity.framework */; };
 		B3BBBB8D2073D9C8005B5E69 /* MultipeerCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBBB8C2073D9C8005B5E69 /* MultipeerCommunicator.swift */; };
 		B3BBBB8F2073DA43005B5E69 /* CommunicationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBBB8E2073DA43005B5E69 /* CommunicationManager.swift */; };
+		B3E68F33209889D900A61039 /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E68F32209889D900A61039 /* RequestFactory.swift */; };
+		B3E68F3520988A0600A61039 /* IRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E68F3420988A0600A61039 /* IRequest.swift */; };
+		B3E68F3B20988A5C00A61039 /* IRequestSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E68F3A20988A5C00A61039 /* IRequestSender.swift */; };
+		B3E68F3D20988A7800A61039 /* RequestSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E68F3C20988A7800A61039 /* RequestSender.swift */; };
+		B3E68F4020988AAC00A61039 /* IParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E68F3F20988AAC00A61039 /* IParser.swift */; };
+		B3E68F4220988CEA00A61039 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E68F4120988CEA00A61039 /* PhotosViewController.swift */; };
+		B3E68F4520988D3200A61039 /* PhotosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E68F4420988D3200A61039 /* PhotosViewController.xib */; };
+		B3E68F4720988E2D00A61039 /* PhotosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E68F4620988E2D00A61039 /* PhotosService.swift */; };
+		B3E68F492098956400A61039 /* PhotosFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E68F482098956400A61039 /* PhotosFacade.swift */; };
+		B3E68F4B209896A800A61039 /* PhotoParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E68F4A209896A800A61039 /* PhotoParser.swift */; };
+		B3E68F4D209898A100A61039 /* PhotoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E68F4C209898A100A61039 /* PhotoRequest.swift */; };
+		B3E68F4F2098A61C00A61039 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E68F4E2098A61C00A61039 /* PhotoCollectionViewCell.swift */; };
+		B3E68F512098A69B00A61039 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E68F502098A69B00A61039 /* PhotoCollectionViewCell.xib */; };
+		B3E68F532098B33000A61039 /* IPhotosViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E68F522098B33000A61039 /* IPhotosViewControllerDelegate.swift */; };
+		B3E68F572098CB0B00A61039 /* ImageParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E68F562098CB0B00A61039 /* ImageParser.swift */; };
+		B3E68F592098CBD700A61039 /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E68F582098CBD700A61039 /* ImageRequest.swift */; };
 		B3EF745F205F94DB00118BF9 /* ThemesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3EF745E205F94DB00118BF9 /* ThemesViewController.m */; };
 		B3EF7465205FA8AA00118BF9 /* ThemesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3EF7464205FA8AA00118BF9 /* ThemesViewController.xib */; };
 		B3F31C2220616F5500B397F2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F31C2120616F5500B397F2 /* BaseViewController.swift */; };
@@ -128,6 +144,22 @@
 		B3BBBB852073D793005B5E69 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
 		B3BBBB8C2073D9C8005B5E69 /* MultipeerCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerCommunicator.swift; sourceTree = "<group>"; };
 		B3BBBB8E2073DA43005B5E69 /* CommunicationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationManager.swift; sourceTree = "<group>"; };
+		B3E68F32209889D900A61039 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
+		B3E68F3420988A0600A61039 /* IRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRequest.swift; sourceTree = "<group>"; };
+		B3E68F3A20988A5C00A61039 /* IRequestSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRequestSender.swift; sourceTree = "<group>"; };
+		B3E68F3C20988A7800A61039 /* RequestSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSender.swift; sourceTree = "<group>"; };
+		B3E68F3F20988AAC00A61039 /* IParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IParser.swift; sourceTree = "<group>"; };
+		B3E68F4120988CEA00A61039 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		B3E68F4420988D3200A61039 /* PhotosViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosViewController.xib; sourceTree = "<group>"; };
+		B3E68F4620988E2D00A61039 /* PhotosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosService.swift; sourceTree = "<group>"; };
+		B3E68F482098956400A61039 /* PhotosFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosFacade.swift; sourceTree = "<group>"; };
+		B3E68F4A209896A800A61039 /* PhotoParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoParser.swift; sourceTree = "<group>"; };
+		B3E68F4C209898A100A61039 /* PhotoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRequest.swift; sourceTree = "<group>"; };
+		B3E68F4E2098A61C00A61039 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		B3E68F502098A69B00A61039 /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		B3E68F522098B33000A61039 /* IPhotosViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPhotosViewControllerDelegate.swift; sourceTree = "<group>"; };
+		B3E68F562098CB0B00A61039 /* ImageParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageParser.swift; sourceTree = "<group>"; };
+		B3E68F582098CBD700A61039 /* ImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequest.swift; sourceTree = "<group>"; };
 		B3EF745D205F94DA00118BF9 /* TinkoffChat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TinkoffChat-Bridging-Header.h"; sourceTree = "<group>"; };
 		B3EF745E205F94DB00118BF9 /* ThemesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThemesViewController.m; sourceTree = "<group>"; };
 		B3EF7460205F958400118BF9 /* ThemesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemesViewController.h; sourceTree = "<group>"; };
@@ -281,6 +313,7 @@
 				B3B290F520921E9300C7446B /* Assembly */,
 				B3B290EA20921D7900C7446B /* CoreData */,
 				B3B290E920921D1A00C7446B /* Multipeer */,
+				B3E68F31209889AE00A61039 /* Networking */,
 			);
 			path = CoreLayer;
 			sourceTree = "<group>";
@@ -331,6 +364,7 @@
 				91C5919D205541810068292A /* Conversation */,
 				B36FC5762054212600F2F948 /* Conversations */,
 				91C59192204C02C90068292A /* Profile */,
+				B3E68F4320988D1300A61039 /* Photos */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -358,6 +392,7 @@
 				B3B291072092423B00C7446B /* UserStorage */,
 				B3B290FA209222BB00C7446B /* ThemeService.swift */,
 				B35084A92092570400937F3B /* CoreDataService.swift */,
+				B3E68F4620988E2D00A61039 /* PhotosService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -369,6 +404,7 @@
 				B3B2910320923CDB00C7446B /* UserStorageFacade.swift */,
 				B3B2910A2092444500C7446B /* CommunicationFacade.swift */,
 				B35084AB2092577500937F3B /* CoreDataFacade.swift */,
+				B3E68F482098956400A61039 /* PhotosFacade.swift */,
 			);
 			path = Facades;
 			sourceTree = "<group>";
@@ -398,6 +434,58 @@
 				B3BBBB852073D793005B5E69 /* MultipeerConnectivity.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B3E68F31209889AE00A61039 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				B3E68F3E20988A9800A61039 /* Parsers */,
+				B3E68F3920988A4400A61039 /* Requests */,
+				B3E68F3820988A3300A61039 /* RequestManager */,
+				B3E68F32209889D900A61039 /* RequestFactory.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		B3E68F3820988A3300A61039 /* RequestManager */ = {
+			isa = PBXGroup;
+			children = (
+				B3E68F3A20988A5C00A61039 /* IRequestSender.swift */,
+				B3E68F3C20988A7800A61039 /* RequestSender.swift */,
+			);
+			path = RequestManager;
+			sourceTree = "<group>";
+		};
+		B3E68F3920988A4400A61039 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				B3E68F3420988A0600A61039 /* IRequest.swift */,
+				B3E68F4C209898A100A61039 /* PhotoRequest.swift */,
+				B3E68F582098CBD700A61039 /* ImageRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		B3E68F3E20988A9800A61039 /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				B3E68F3F20988AAC00A61039 /* IParser.swift */,
+				B3E68F4A209896A800A61039 /* PhotoParser.swift */,
+				B3E68F562098CB0B00A61039 /* ImageParser.swift */,
+			);
+			path = Parsers;
+			sourceTree = "<group>";
+		};
+		B3E68F4320988D1300A61039 /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				B3E68F522098B33000A61039 /* IPhotosViewControllerDelegate.swift */,
+				B3E68F4120988CEA00A61039 /* PhotosViewController.swift */,
+				B3E68F4420988D3200A61039 /* PhotosViewController.xib */,
+				B3E68F4E2098A61C00A61039 /* PhotoCollectionViewCell.swift */,
+				B3E68F502098A69B00A61039 /* PhotoCollectionViewCell.xib */,
+			);
+			path = Photos;
 			sourceTree = "<group>";
 		};
 		B3EF7463205FA88F00118BF9 /* Themes */ = {
@@ -534,6 +622,8 @@
 				B37C5570206B6F6C00834574 /* ProfileViewController.xib in Resources */,
 				B3EF7465205FA8AA00118BF9 /* ThemesViewController.xib in Resources */,
 				9135BD6A2042BD99004FA990 /* LaunchScreen.storyboard in Resources */,
+				B3E68F4520988D3200A61039 /* PhotosViewController.xib in Resources */,
+				B3E68F512098A69B00A61039 /* PhotoCollectionViewCell.xib in Resources */,
 				9135BD672042BD99004FA990 /* Assets.xcassets in Resources */,
 				9135BD652042BD98004FA990 /* Main.storyboard in Resources */,
 			);
@@ -560,20 +650,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3E68F3B20988A5C00A61039 /* IRequestSender.swift in Sources */,
 				B34FBF8D208FA8DD00A3DFBD /* User+CoreData.swift in Sources */,
 				B36FC57A2054277700F2F948 /* ConversationsTableViewCell.swift in Sources */,
 				B3B290F120921E0000C7446B /* PresentationAssembly.swift in Sources */,
 				B3BBBB8F2073DA43005B5E69 /* CommunicationManager.swift in Sources */,
 				91C5919A204C02FE0068292A /* ProfileViewController.swift in Sources */,
+				B3E68F4020988AAC00A61039 /* IParser.swift in Sources */,
 				91C5919F205541C70068292A /* ConversationViewController.swift in Sources */,
 				B36FC5782054214D00F2F948 /* ConversationsListViewController.swift in Sources */,
+				B3E68F3520988A0600A61039 /* IRequest.swift in Sources */,
 				B3F31C2620617D9900B397F2 /* UIColor+Extension.swift in Sources */,
 				B3BBBB8D2073D9C8005B5E69 /* MultipeerCommunicator.swift in Sources */,
 				91C591A12055488C0068292A /* MessageCellConfiguration.swift in Sources */,
 				B339CBCD206AAD4900805B6C /* UserGCDStorageService.swift in Sources */,
 				B3F31C2220616F5500B397F2 /* BaseViewController.swift in Sources */,
 				B3B290ED20921DD600C7446B /* RootAssembly.swift in Sources */,
+				B3E68F4F2098A61C00A61039 /* PhotoCollectionViewCell.swift in Sources */,
 				B34A4533206BB43800D7A450 /* UserFileStorage.swift in Sources */,
+				B3E68F3D20988A7800A61039 /* RequestSender.swift in Sources */,
+				B3E68F592098CBD700A61039 /* ImageRequest.swift in Sources */,
+				B3E68F572098CB0B00A61039 /* ImageParser.swift in Sources */,
 				B39B2773205FBAFA00E7C09F /* Themes.m in Sources */,
 				91C5919C204C10080068292A /* UIView+Extension.swift in Sources */,
 				B3B290FE209232B400C7446B /* ThemeFacade.swift in Sources */,
@@ -582,23 +679,30 @@
 				B3B290F720921E9F00C7446B /* CoreAssembly.swift in Sources */,
 				B36FC57C2054295200F2F948 /* ConversationCellConfiguration.swift in Sources */,
 				B34FBF87208F9A6700A3DFBD /* AppUser+CoreData.swift in Sources */,
+				B3E68F492098956400A61039 /* PhotosFacade.swift in Sources */,
 				91C591A3205549B20068292A /* MessageTableViewCell.swift in Sources */,
 				B339CBCF206AAD5F00805B6C /* UserOperationStorageService.swift in Sources */,
 				B34FBF91208FAD8F00A3DFBD /* ConversationDataProvider.swift in Sources */,
 				B3B2910420923CDB00C7446B /* UserStorageFacade.swift in Sources */,
 				B36FC57E20542C5C00F2F948 /* ConversationWrapper.swift in Sources */,
+				B3E68F4D209898A100A61039 /* PhotoRequest.swift in Sources */,
 				B3B2910220923A4100C7446B /* CommunicatorStorageService.swift in Sources */,
 				B35084AA2092570400937F3B /* CoreDataService.swift in Sources */,
+				B3E68F4220988CEA00A61039 /* PhotosViewController.swift in Sources */,
 				9135BD602042BD98004FA990 /* AppDelegate.swift in Sources */,
 				B34FBF8F208FAAEA00A3DFBD /* Conversation+CoreData.swift in Sources */,
 				B3B2910B2092444500C7446B /* CommunicationFacade.swift in Sources */,
 				B3B290F420921E7600C7446B /* ServicesAssembly.swift in Sources */,
 				B3EF745F205F94DB00118BF9 /* ThemesViewController.m in Sources */,
+				B3E68F4720988E2D00A61039 /* PhotosService.swift in Sources */,
+				B3E68F532098B33000A61039 /* IPhotosViewControllerDelegate.swift in Sources */,
 				B3F31C2420616FE600B397F2 /* UserDefaults+Extension.swift in Sources */,
 				B34FBF8B208F9D9800A3DFBD /* ConversationsDataProvider.swift in Sources */,
 				B33AA14B207DE2FC007571E7 /* ProfileUser.swift in Sources */,
+				B3E68F33209889D900A61039 /* RequestFactory.swift in Sources */,
 				B35AE5EC207B4905000F5B79 /* UserCoreDataStorage.swift in Sources */,
 				B3B290FB209222BB00C7446B /* ThemeService.swift in Sources */,
+				B3E68F4B209896A800A61039 /* PhotoParser.swift in Sources */,
 				B34FBF89208F9B0300A3DFBD /* Message+CoreData.swift in Sources */,
 				B35AE5EA207B420E000F5B79 /* CoreDataStack.swift in Sources */,
 				B35084AC2092577500937F3B /* CoreDataFacade.swift in Sources */,
