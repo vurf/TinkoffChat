@@ -231,6 +231,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="textFieldDidChange:" destination="uGi-Zf-GaX" eventType="editingChanged" id="HFE-jp-IgZ"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AP1-2H-3Mi">
                                         <rect key="frame" x="323" y="7" width="36" height="30"/>
@@ -263,11 +266,34 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="a8i-gn-FSW"/>
                     </view>
+                    <navigationItem key="navigationItem" id="aY3-Wf-RFb">
+                        <nil key="title"/>
+                        <view key="titleView" contentMode="scaleToFill" id="SZx-y9-aXv">
+                            <rect key="frame" x="33" y="12" width="334" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8T-h0-Os5">
+                                    <rect key="frame" x="0.0" y="0.0" width="334" height="20"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="Q8T-h0-Os5" firstAttribute="leading" secondItem="SZx-y9-aXv" secondAttribute="leading" id="0H4-Tf-EBU"/>
+                                <constraint firstAttribute="bottom" secondItem="Q8T-h0-Os5" secondAttribute="bottom" id="4wh-sN-U8x"/>
+                                <constraint firstItem="Q8T-h0-Os5" firstAttribute="top" secondItem="SZx-y9-aXv" secondAttribute="top" id="Cmh-iS-esO"/>
+                                <constraint firstAttribute="trailing" secondItem="Q8T-h0-Os5" secondAttribute="trailing" id="u6G-4M-Krw"/>
+                            </constraints>
+                        </view>
+                    </navigationItem>
                     <connections>
                         <outlet property="bottomConstraint" destination="43a-h4-BS4" id="9cv-RW-knn"/>
                         <outlet property="messageTextField" destination="Ao8-vw-ueQ" id="AdK-68-1FA"/>
                         <outlet property="sendButton" destination="AP1-2H-3Mi" id="NvR-dZ-kY9"/>
                         <outlet property="tableView" destination="vi8-uL-CJr" id="ybl-gV-nq8"/>
+                        <outlet property="titleLabel" destination="Q8T-h0-Os5" id="nib-Uh-gE5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PVj-0f-hdW" userLabel="First Responder" sceneMemberID="firstResponder"/>

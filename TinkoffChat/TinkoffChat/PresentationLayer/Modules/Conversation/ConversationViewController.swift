@@ -12,6 +12,7 @@ import CoreData
 
 class ConversationViewController: BaseViewController {
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tableView : UITableView!
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var sendButton : UIButton!
@@ -22,15 +23,46 @@ class ConversationViewController: BaseViewController {
     var conversationProvider : ConversationDataProvider?
     var conversationId : String?
     var userId : String?
-            
+    var online : Bool?
+    var userName : String?
+    
+    var buttonEnabled: Bool = false {
+        didSet {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.sendButton.isEnabled = self.buttonEnabled
+                self.sendButton.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)
+            }) { (complete) in
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.sendButton.transform = CGAffineTransform(scaleX: 1, y: 1)
+                })
+            }
+        }
+    }
+    
+    var userOnline: Bool? {
+        didSet {
+            UIView.animate(withDuration: 1) {
+                let scale : CGFloat = self.userOnline == true ? 1.1 : 1
+                self.titleLabel.transform = CGAffineTransform(scaleX: scale, y: scale)
+                self.titleLabel.textColor = self.userOnline == true ? UIColor.green : UIColor.black
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        AppDelegate.rootAssembly.presentationAssembly.communicationFacade.setDelegate(delegate: self)
         self.tableView.dataSource = self
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 66
         self.tableView.keyboardDismissMode = .onDrag
         self.conversationProvider = ConversationDataProvider(tableView: self.tableView, conversationId: self.conversationId!)
         self.fetchedResultsController = self.conversationProvider?.fetchedResultsController
+        
+        self.titleLabel.text = self.userName
+        
+        self.buttonEnabled = false
+        self.userOnline = online
         
         do {
             try self.fetchedResultsController?.performFetch()
@@ -48,9 +80,14 @@ class ConversationViewController: BaseViewController {
             if success {
                 DispatchQueue.main.async {
                     self.messageTextField.text = ""
+                    self.buttonEnabled = false
                 }                
             }
         })
+    }
+    
+    @IBAction func textFieldDidChange(_ sender: UITextField) {
+        self.buttonEnabled = (self.userOnline ?? false) && (sender.text?.isEmpty == false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -121,4 +158,18 @@ extension ConversationViewController : UITableViewDataSource {
         return dequeuedCell
     }
     
+}
+
+// MARK: - CommunicationUserDelegate
+extension ConversationViewController: IDisplayUserDelegate {
+    
+    func didFoundUser(userID: String, userName: String?) {
+        self.buttonEnabled = true
+        self.userOnline = true
+    }
+    
+    func didLostUser(userID: String) {
+        self.buttonEnabled = false
+        self.userOnline = false
+    }
 }

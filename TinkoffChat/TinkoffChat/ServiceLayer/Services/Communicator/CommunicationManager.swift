@@ -8,7 +8,14 @@
 
 import Foundation
 
+protocol IUserFoundDelegate : class {
+    func didFoundUser(userID : String, userName : String?)
+    func didLostUser(userID : String)
+}
+
 protocol ICommunicationManager : class {
+    
+    var delegate: IUserFoundDelegate? {get set}
     
     var displayName: String {get}
     
@@ -30,6 +37,7 @@ protocol ICommunicationManager : class {
 
 class CommunicationManager : NSObject, ICommunicationManager {
     
+    weak var delegate: IUserFoundDelegate?
     private var communicator : ICommunicator
     private var storage : ICommunicatorStorageService
     
@@ -53,10 +61,12 @@ class CommunicationManager : NSObject, ICommunicationManager {
     
     func didFoundUser(userID: String, userName: String?) {
         self.storage.didFoundUser(userID: userID, userName: userName)
+        self.delegate?.didFoundUser(userID: userID, userName: userName)
     }
     
     func didLostUser(userID: String) {
         self.storage.didLostUser(userID: userID)
+        self.delegate?.didLostUser(userID: userID)
     }
     
     func failedToStartBrowsingForUsers(error: Error) {

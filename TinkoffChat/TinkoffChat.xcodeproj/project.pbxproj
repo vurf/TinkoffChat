@@ -38,6 +38,7 @@
 		B36FC57C2054295200F2F948 /* ConversationCellConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36FC57B2054295200F2F948 /* ConversationCellConfiguration.swift */; };
 		B36FC57E20542C5C00F2F948 /* ConversationWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36FC57D20542C5C00F2F948 /* ConversationWrapper.swift */; };
 		B37C5570206B6F6C00834574 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B37C556F206B6F6C00834574 /* ProfileViewController.xib */; };
+		B38A34AA20B3378C002C7C45 /* Emitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38A34A920B3378C002C7C45 /* Emitter.swift */; };
 		B399679B207B612100E87D16 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B3996799207B612100E87D16 /* Model.xcdatamodeld */; };
 		B39B2773205FBAFA00E7C09F /* Themes.m in Sources */ = {isa = PBXBuildFile; fileRef = B39B2772205FBAFA00E7C09F /* Themes.m */; };
 		B3B290ED20921DD600C7446B /* RootAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B290EC20921DD600C7446B /* RootAssembly.swift */; };
@@ -130,6 +131,7 @@
 		B36FC57B2054295200F2F948 /* ConversationCellConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationCellConfiguration.swift; sourceTree = "<group>"; };
 		B36FC57D20542C5C00F2F948 /* ConversationWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationWrapper.swift; sourceTree = "<group>"; };
 		B37C556F206B6F6C00834574 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		B38A34A920B3378C002C7C45 /* Emitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emitter.swift; sourceTree = "<group>"; };
 		B399679A207B612100E87D16 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B39B2772205FBAFA00E7C09F /* Themes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Themes.m; sourceTree = "<group>"; };
 		B3B290EC20921DD600C7446B /* RootAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAssembly.swift; sourceTree = "<group>"; };
@@ -287,9 +289,18 @@
 			path = Conversations;
 			sourceTree = "<group>";
 		};
+		B38A34A820B33770002C7C45 /* Animator */ = {
+			isa = PBXGroup;
+			children = (
+				B38A34A920B3378C002C7C45 /* Emitter.swift */,
+			);
+			path = Animator;
+			sourceTree = "<group>";
+		};
 		B3B290E620921CE300C7446B /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				B38A34A820B33770002C7C45 /* Animator */,
 				B3F31C2720617E2100B397F2 /* Extensions */,
 				B3B290EE20921DE200C7446B /* Assembly */,
 				B3B290EF20921DE800C7446B /* Modules */,
@@ -691,6 +702,7 @@
 				B3E68F4220988CEA00A61039 /* PhotosViewController.swift in Sources */,
 				9135BD602042BD98004FA990 /* AppDelegate.swift in Sources */,
 				B34FBF8F208FAAEA00A3DFBD /* Conversation+CoreData.swift in Sources */,
+				B38A34AA20B3378C002C7C45 /* Emitter.swift in Sources */,
 				B3B2910B2092444500C7446B /* CommunicationFacade.swift in Sources */,
 				B3B290F420921E7600C7446B /* ServicesAssembly.swift in Sources */,
 				B3EF745F205F94DB00118BF9 /* ThemesViewController.m in Sources */,

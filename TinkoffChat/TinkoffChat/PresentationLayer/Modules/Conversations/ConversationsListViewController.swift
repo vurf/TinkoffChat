@@ -62,7 +62,8 @@ class ConversationsListViewController: BaseViewController {
             if let selectedIndexPath = self.tableView.indexPath(for: selectedCell) {
                 self.tableView.deselectRow(at: selectedIndexPath, animated: true)
                 let conversationViewController = segue.destination as? ConversationViewController
-                conversationViewController?.title = selectedCell.name
+                conversationViewController?.userName = selectedCell.name
+                conversationViewController?.online = selectedCell.online
                 conversationViewController?.communicator = AppDelegate.rootAssembly.presentationAssembly.communicationFacade
                 conversationViewController?.conversationId = selectedCell.conversationId
                 conversationViewController?.userId = selectedCell.userId
