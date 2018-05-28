@@ -68,4 +68,21 @@ class ThemeServiceTests: XCTestCase {
         XCTAssertEqual(expectedInverseColor, UINavigationBar.appearance().tintColor)
         XCTAssertEqual(expectedInverseColor, titleColor)
     }
+    
+    // MARK: - test remove theme
+    func testRemoveTheme() {
+        
+        // when
+        let expectedDefaultColor = UIColor.white
+        
+        // given
+        self.themeService.removeSavedTheme()
+        let result = UserDefaults.standard.colorForKey(key: "selectedColor")
+        let resultDefaultColor = self.themeService.getSavedTheme()
+        
+        // then
+        XCTAssertNil(result)
+        XCTAssertEqual(expectedDefaultColor, resultDefaultColor)
+        
+    }
 }
