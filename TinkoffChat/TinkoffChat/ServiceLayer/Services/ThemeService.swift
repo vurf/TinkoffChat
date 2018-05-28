@@ -15,6 +15,8 @@ protocol IThemeService {
     func getSavedTheme() -> UIColor
     
     func applyTheme(color: UIColor)
+    
+    func removeSavedTheme()
 }
 
 class ThemeService: IThemeService {
@@ -38,5 +40,9 @@ class ThemeService: IThemeService {
         UINavigationBar.appearance().barTintColor = color
         UINavigationBar.appearance().tintColor = inverseColor
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: inverseColor]
+    }
+    
+    func removeSavedTheme() {
+        // without implementation
     }
 }
