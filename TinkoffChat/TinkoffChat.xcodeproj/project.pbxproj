@@ -11,7 +11,7 @@
 		9135BD652042BD98004FA990 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9135BD632042BD98004FA990 /* Main.storyboard */; };
 		9135BD672042BD99004FA990 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9135BD662042BD99004FA990 /* Assets.xcassets */; };
 		9135BD6A2042BD99004FA990 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9135BD682042BD99004FA990 /* LaunchScreen.storyboard */; };
-		9135BD752042BD99004FA990 /* TinkoffChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9135BD742042BD99004FA990 /* TinkoffChatTests.swift */; };
+		9135BD752042BD99004FA990 /* ThemeServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9135BD742042BD99004FA990 /* ThemeServiceTests.swift */; };
 		9135BD802042BD99004FA990 /* TinkoffChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9135BD7F2042BD99004FA990 /* TinkoffChatUITests.swift */; };
 		91C5919A204C02FE0068292A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C59198204C02FE0068292A /* ProfileViewController.swift */; };
 		91C5919C204C10080068292A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C5919B204C10080068292A /* UIView+Extension.swift */; };
@@ -53,6 +53,7 @@
 		B3BBBB862073D793005B5E69 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3BBBB852073D793005B5E69 /* MultipeerConnectivity.framework */; };
 		B3BBBB8D2073D9C8005B5E69 /* MultipeerCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBBB8C2073D9C8005B5E69 /* MultipeerCommunicator.swift */; };
 		B3BBBB8F2073DA43005B5E69 /* CommunicationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BBBB8E2073DA43005B5E69 /* CommunicationManager.swift */; };
+		B3C10C3220BBEF2900A4734B /* ThemeFacadeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C10C3120BBEF2900A4734B /* ThemeFacadeTests.swift */; };
 		B3E68F33209889D900A61039 /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E68F32209889D900A61039 /* RequestFactory.swift */; };
 		B3E68F3520988A0600A61039 /* IRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E68F3420988A0600A61039 /* IRequest.swift */; };
 		B3E68F3B20988A5C00A61039 /* IRequestSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E68F3A20988A5C00A61039 /* IRequestSender.swift */; };
@@ -101,7 +102,7 @@
 		9135BD692042BD99004FA990 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9135BD6B2042BD99004FA990 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9135BD702042BD99004FA990 /* TinkoffChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TinkoffChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9135BD742042BD99004FA990 /* TinkoffChatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinkoffChatTests.swift; sourceTree = "<group>"; };
+		9135BD742042BD99004FA990 /* ThemeServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeServiceTests.swift; sourceTree = "<group>"; };
 		9135BD762042BD99004FA990 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9135BD7B2042BD99004FA990 /* TinkoffChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TinkoffChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9135BD7F2042BD99004FA990 /* TinkoffChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinkoffChatUITests.swift; sourceTree = "<group>"; };
@@ -146,6 +147,7 @@
 		B3BBBB852073D793005B5E69 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
 		B3BBBB8C2073D9C8005B5E69 /* MultipeerCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerCommunicator.swift; sourceTree = "<group>"; };
 		B3BBBB8E2073DA43005B5E69 /* CommunicationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationManager.swift; sourceTree = "<group>"; };
+		B3C10C3120BBEF2900A4734B /* ThemeFacadeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeFacadeTests.swift; sourceTree = "<group>"; };
 		B3E68F32209889D900A61039 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
 		B3E68F3420988A0600A61039 /* IRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRequest.swift; sourceTree = "<group>"; };
 		B3E68F3A20988A5C00A61039 /* IRequestSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRequestSender.swift; sourceTree = "<group>"; };
@@ -240,7 +242,8 @@
 		9135BD732042BD99004FA990 /* TinkoffChatTests */ = {
 			isa = PBXGroup;
 			children = (
-				9135BD742042BD99004FA990 /* TinkoffChatTests.swift */,
+				B3C10C3120BBEF2900A4734B /* ThemeFacadeTests.swift */,
+				9135BD742042BD99004FA990 /* ThemeServiceTests.swift */,
 				9135BD762042BD99004FA990 /* Info.plist */,
 			);
 			path = TinkoffChatTests;
@@ -725,7 +728,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9135BD752042BD99004FA990 /* TinkoffChatTests.swift in Sources */,
+				9135BD752042BD99004FA990 /* ThemeServiceTests.swift in Sources */,
+				B3C10C3220BBEF2900A4734B /* ThemeFacadeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
