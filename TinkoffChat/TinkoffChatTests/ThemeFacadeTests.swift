@@ -80,6 +80,10 @@ class ThemeFacadeTests: XCTestCase {
             self.performApplyThemeCalled = true
             self.performApplyThemeColorParameter = color
         }
+        
+        func removeSavedTheme() {
+            // without implementation
+        }
     }
 }
 

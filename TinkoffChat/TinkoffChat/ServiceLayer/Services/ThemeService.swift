@@ -43,6 +43,6 @@ class ThemeService: IThemeService {
     }
     
     func removeSavedTheme() {
-        // without implementation
+        self.defaults.setColor(color: nil, forKey: "selectedColor")
     }
 }
